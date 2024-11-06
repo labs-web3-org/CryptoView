@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const process = require("process");
 const workoutRoutes = require("./routes/workouts.js");
 const usersRoutes = require("./routes/users.js");
+const nftRoutes = require("./routes/ntfRoute.js");
 const transactionsRoutes = require("./routes/Transactions.js");
 const userPortfolio = require("./routes/userPortfolio.js");
 const mongoose = require("mongoose");
@@ -34,6 +35,7 @@ app.use("/api/workouts/", workoutRoutes);
 app.use("/api/portfolio/", userPortfolio);
 app.use("/api/transactions/", transactionsRoutes);
 app.use("/api/users/", usersRoutes);
+app.use("/api/nft/", nftRoutes);
 
 //connect to db et lancement du server
 mongoose
@@ -43,7 +45,7 @@ mongoose
     console.log(`connected to db`);
   })
   .catch((error) => {
-    // console.log(error);
+    console.log(error);
   });
 
 app.listen(process.env.PORT, () => {
